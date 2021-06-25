@@ -127,3 +127,6 @@ C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project
 C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\DotNet_Phase3_Project\DotNet_Phase3_Project\obj\Debug\DotNet_Phase3_Project.csproj.CopyComplete
 C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\DotNet_Phase3_Project\DotNet_Phase3_Project\obj\Debug\DotNet_Phase3_Project.dll
 C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\DotNet_Phase3_Project\DotNet_Phase3_Project\obj\Debug\DotNet_Phase3_Project.pdb
+C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\DotNet_Phase3_Project\DotNet_Phase3_Project\bin\Microsoft.Owin.dll
+C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\DotNet_Phase3_Project\DotNet_Phase3_Project\bin\Owin.dll
+C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\DotNet_Phase3_Project\DotNet_Phase3_Project\bin\Microsoft.Owin.xml

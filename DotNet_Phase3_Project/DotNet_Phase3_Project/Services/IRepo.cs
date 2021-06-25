@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet_Phase3_Project.Services
 {
-    interface IRepo<T>
+    public interface IRepo<T>
     {
         T Get(int id);
         IEnumerable<T> GetAll();

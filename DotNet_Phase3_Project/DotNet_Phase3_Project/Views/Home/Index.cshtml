@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@Styles.Render("~/Content/ProductCard.css")
+@*@Styles.Render("~/Content/ProductCard.css")*@
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -27,6 +27,7 @@
                                     <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">@item.Name</a> </h6> <a href="#" class="text-muted" data-abc="true">@item.Category</a>
                                 </div>
                                 <h3 class="mb-0 font-weight-semibold">$@item.Price</h3>
+                                <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> <a href="/home/details/@item.ProductID">More Details</a></button>
                                 <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                             </div>
                         </div>

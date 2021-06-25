@@ -74,5 +74,18 @@ namespace DotNet_Phase3_Project.Controllers
 
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            Product product = _ProductRepo.Get(id);
+            Console.WriteLine(product);
+            return View(product);
+        }
+        public ActionResult SignIn()
+        {
+            ViewBag.Message = "Your SignIn page.";
+
+            return View();
+        }
     }
 }

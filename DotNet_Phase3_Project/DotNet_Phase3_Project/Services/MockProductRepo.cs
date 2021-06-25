@@ -67,8 +67,8 @@ namespace DotNet_Phase3_Project.Services
 
         public Product Get(int id)
         {
+            Console.WriteLine(id);
             return _products.FirstOrDefault(x=>x.ProductID == id);
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<Product> GetAll()
