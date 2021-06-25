@@ -35,18 +35,27 @@ namespace DotNet_Phase3_Project.Controllers
         [HttpPost]
         public ActionResult AddProduct(Product product)
         {
-            Product item = new Product()
+            if (ModelState.IsValid)
             {
-                ProductID = _ProductRepo.GetAll().Max(m => m.ProductID) + 1,
-                Category = product.Category,
-                Name = product.Name,
-                Price = product.Price,
-                Image = product.Image,
-                Description = product.Description
+                Product item = new Product()
+                {
+                    ProductID = _ProductRepo.GetAll().Max(m => m.ProductID) + 1,
+                    Category = product.Category,
+                    Name = product.Name,
+                    Price = product.Price,
+                    Image = product.Image,
+                    Description = product.Description
 
-            };
-            _ProductRepo.Add(item);
-            return View();
+                };
+                _ProductRepo.Add(item);
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                return View();
+            }
+ 
         }
 
 
