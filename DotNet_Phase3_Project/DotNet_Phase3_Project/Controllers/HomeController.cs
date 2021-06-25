@@ -1,5 +1,6 @@
 ﻿using DotNet_Phase3_Project.Models;
 using DotNet_Phase3_Project.Services;
+using DotNet_Phase3_Project.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,23 @@ namespace DotNet_Phase3_Project.Controllers
             Console.WriteLine(product);
             return View(product);
         }
+        public ActionResult Order(int? id)
+        {
+            if(id!=null && id >= 0)
+            {
+                OrderViewModel model = new OrderViewModel()
+                {
+                    ProducttoOrder = _ProductRepo.Get((int)id),
+                    OrderDetails = new Order()
+                    {
+                        ProductID = (int)id
+                    }
+                };
+                return View(model);
+            }
+            return View();
+        }
+
         public ActionResult SignIn()
         {
             ViewBag.Message = "Your SignIn page.";

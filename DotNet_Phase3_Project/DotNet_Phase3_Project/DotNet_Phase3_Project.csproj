@@ -219,6 +219,7 @@
     <Compile Include="Services\IRepo.cs" />
     <Compile Include="Services\MockProductRepo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -260,6 +261,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AddProduct.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
