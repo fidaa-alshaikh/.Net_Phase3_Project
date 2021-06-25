@@ -12,17 +12,45 @@ namespace DotNet_Phase3_Project.Controllers
     {
 
         List<Product> _product;
-        IRepo<Product> _repo;
+        IRepo<Product> _ProductRepo;
         public HomeController()
         {
             _product = new List<Product>();
-            _repo = new MockProductRepo();
+            _ProductRepo = new MockProductRepo();
         }
+        // view homepage
         public ActionResult Index()
         {
     
-            return View(_repo.GetAll());
+            return View(_ProductRepo.GetAll());
         }
+
+        // View add product page
+        [HttpGet]
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+        // add route
+        [HttpPost]
+        public ActionResult AddProduct(Product product)
+        {
+            Product item = new Product()
+            {
+                ProductID = _ProductRepo.GetAll().Max(m => m.ProductID) + 1,
+                Category = product.Category,
+                Name = product.Name,
+                Price = product.Price,
+                Image = product.Image,
+                Description = product.Description
+
+            };
+            _ProductRepo.Add(item);
+            return View();
+        }
+
+
+
 
         public ActionResult About()
         {
