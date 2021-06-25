@@ -82,6 +82,7 @@ namespace DotNet_Phase3_Project.Controllers
             Console.WriteLine(product);
             return View(product);
         }
+        [HttpGet]
         public ActionResult Order(int? id)
         {
             if(id!=null && id >= 0)
@@ -98,6 +99,40 @@ namespace DotNet_Phase3_Project.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Order(int id, Order OrderDetails)
+        {
+
+            if (ModelState.IsValid)
+            {
+                if (_ProductRepo.GetAll().Count(x=>x.ProductID == OrderDetails.ProductID) >= 1){
+                    return RedirectToAction("Aproved");
+                }
+                else
+                {
+                    return View();
+                }
+
+            }
+            else
+            {
+                return View(new OrderViewModel()
+                {
+                    OrderDetails = OrderDetails,
+                    ProducttoOrder = _ProductRepo.Get(id)
+                });
+            }
+
+        }
+
+        public ActionResult Aproved()
+        {
+            ViewBag.Message = "Your Aproved page.";
+
+            return View();
+        }
+
 
         public ActionResult SignIn()
         {
