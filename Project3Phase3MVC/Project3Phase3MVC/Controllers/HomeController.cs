@@ -45,20 +45,9 @@ namespace Project3Phase3MVC.Controllers
         public ActionResult AddProduct(Product product)
         {
             if (ModelState.IsValid)
-            {
-                Product item = new Product()
-                {
-                    ProductID = _ProductRepo.GetAll().Max(m => m.ProductID) + 1,
-                    Category = product.Category,
-                    Name = product.Name,
-                    Price = product.Price,
-                    Image = product.Image,
-                    Description = product.Description
-
-                };
-                _ProductRepo.Add(item);
+            {             
+                _ProductRepo.Add(product);
                 return RedirectToAction("Index");
-
             }
             else
             {
@@ -67,15 +56,6 @@ namespace Project3Phase3MVC.Controllers
 
         }
 
-
-
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
 
         public ActionResult Contact()
         {
@@ -149,6 +129,13 @@ namespace Project3Phase3MVC.Controllers
             ViewBag.Message = "Your OrderList page.";
 
             return View(_OrderRepo.GetAll());
+        }
+
+        public ActionResult ProductList()
+        {
+            ViewBag.Message = "Your ProductList page.";
+
+            return View(_ProductRepo.GetAll());
         }
 
 

@@ -5,6 +5,9 @@
     line-height: 1.5385;
     color: #333;
     text-align: left;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
 }
 
 .mt-50 {
@@ -49,7 +52,7 @@
 }
 
 .bg-cart {
-    background-color: orange;
+    background-color: gray;
     color: #fff
 }
 
@@ -69,4 +72,11 @@
 
 a {
     text-decoration: none !important
+}
+
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    /* rtl:remove */
+    letter-spacing: -.05rem;
 }
