@@ -15,12 +15,17 @@ namespace Project3Phase3MVC.Controllers
     public class HomeController : Controller
     {
 
-        List<Product> _product;
+        //List<Product> _product;
         IRepo<Product> _ProductRepo;
-        public HomeController()
+        IRepo<Order> _OrderRepo;
+        public HomeController(IRepo<Product> product, IRepo<Order> order)
         {
-            _product = new List<Product>();
-            _ProductRepo = new MockProductRepo();
+
+            //_product = new List<Product>();
+            //_ProductRepo = new MockProductRepo();
+            _ProductRepo =  product;
+            _OrderRepo =  order;
+
         }
         // view homepage
         public ActionResult Index()
@@ -109,8 +114,10 @@ namespace Project3Phase3MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                if (_ProductRepo.GetAll().Count(x => x.ProductID == OrderDetails.ProductID) >= 1)
+                if (_ProductRepo.GetAll().Count(x => x.ProductID == id) >= 1)
                 {
+                    OrderDetails.ProductID = id;
+                    _OrderRepo.Add(OrderDetails);
                     return RedirectToAction("Aproved");
                 }
                 else
@@ -135,6 +142,13 @@ namespace Project3Phase3MVC.Controllers
             ViewBag.Message = "Your Aproved page.";
 
             return View();
+        }
+
+        public ActionResult OrderList()
+        {
+            ViewBag.Message = "Your OrderList page.";
+
+            return View(_OrderRepo.GetAll());
         }
 
 
