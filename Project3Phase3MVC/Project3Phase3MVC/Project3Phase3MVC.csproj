@@ -19,4 +19,8 @@
     </DotNetCliToolReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
+
 </Project>

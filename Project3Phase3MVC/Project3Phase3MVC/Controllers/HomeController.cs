@@ -138,13 +138,42 @@ namespace Project3Phase3MVC.Controllers
             return View(_ProductRepo.GetAll());
         }
 
-
+        [HttpGet]
         public ActionResult SignIn()
         {
-            ViewBag.Message = "Your SignIn page.";
+            ViewBag.Message = "";
 
-            return View();
+            return View(new Login());
         }
+
+        [HttpPost]
+        public ActionResult SignIn(Login model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.UserName == "Admin" && model.Password == "123")
+                {
+
+                    return RedirectToAction("ProductList");
+
+                }
+
+                else
+                {
+                    // ltrMessage.Text = "Please fill required values";
+                    ViewBag.Message = "Invalid credentails";
+                  
+                    return View("SignIn");
+                }
+            }
+            else
+            {
+                return View();
+            }
+
+
+        }
+
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

@@ -231,3 +231,4 @@ C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project
 C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\Project3Phase3MVC\Project3Phase3MVC\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\Project3Phase3MVC\Project3Phase3MVC\obj\Debug\net5.0\Razor\Views\Home\OrderList.cshtml.g.cs
 C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\Project3Phase3MVC\Project3Phase3MVC\obj\Debug\net5.0\Razor\Views\Home\ProductList.cshtml.g.cs
+C:\Users\fedaa_1zoqddg\OneDrive\Desktop\.NET-COURSE\Projects\.Net_Phase3_Project\Project3Phase3MVC\Project3Phase3MVC\obj\Debug\net5.0\Razor\Views\Home\SignIn.cshtml.g.cs
