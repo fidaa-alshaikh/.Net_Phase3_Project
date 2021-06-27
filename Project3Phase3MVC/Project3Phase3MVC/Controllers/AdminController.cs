@@ -12,19 +12,19 @@ using System.Threading.Tasks;
 
 namespace Project3Phase3MVC.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
 
         //List<Product> _product;
         IRepo<Product> _ProductRepo;
         IRepo<Order> _OrderRepo;
-        public HomeController(IRepo<Product> product, IRepo<Order> order)
+        public AdminController(IRepo<Product> product, IRepo<Order> order)
         {
 
             //_product = new List<Product>();
             //_ProductRepo = new MockProductRepo();
-            _ProductRepo =  product;
-            _OrderRepo =  order;
+            _ProductRepo = product;
+            _OrderRepo = order;
 
         }
         // view homepage
@@ -34,7 +34,28 @@ namespace Project3Phase3MVC.Controllers
             return View(_ProductRepo.GetAll());
         }
 
-        
+        // View add product page
+        [HttpGet]
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+        // add route
+        [HttpPost]
+        public ActionResult AddProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _ProductRepo.Add(product);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
 
         public ActionResult Contact()
         {
@@ -103,14 +124,26 @@ namespace Project3Phase3MVC.Controllers
             return View();
         }
 
-       
+        public ActionResult OrderList()
+        {
+            ViewBag.Message = "Your OrderList page.";
+
+            return View(_OrderRepo.GetAll());
+        }
+
+        public ActionResult ProductList()
+        {
+            ViewBag.Message = "Your ProductList page.";
+
+            return View(_ProductRepo.GetAll());
+        }
 
         [HttpGet]
         public ActionResult SignIn()
         {
             ViewBag.Message = "";
 
-            return View(new Login());
+            return View();
         }
 
         [HttpPost]
@@ -121,7 +154,7 @@ namespace Project3Phase3MVC.Controllers
                 if (model.UserName == "Admin" && model.Password == "123")
                 {
 
-                    return RedirectToAction("Admin/Option");
+                    return RedirectToAction("Option", model);
 
                 }
 
@@ -129,7 +162,7 @@ namespace Project3Phase3MVC.Controllers
                 {
                     // ltrMessage.Text = "Please fill required values";
                     ViewBag.Message = "Invalid credentails";
-                  
+
                     return View("SignIn");
                 }
             }
@@ -140,6 +173,12 @@ namespace Project3Phase3MVC.Controllers
 
 
         }
+        public ActionResult Option()
+        {
+
+            return View();
+        }
+
 
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
