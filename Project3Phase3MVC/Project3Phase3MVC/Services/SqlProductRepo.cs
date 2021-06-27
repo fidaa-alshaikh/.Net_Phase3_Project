@@ -38,14 +38,9 @@ namespace DotNet_Phase3_Project.Services
             try
             {
                 Product product = Get(item.ProductID);
-                if (product != null)
-                {
                     _context.Remove(item);
                     _context.SaveChanges();
                     return true;
-                }
-                return false;
-
             }
             catch (Exception)
             {

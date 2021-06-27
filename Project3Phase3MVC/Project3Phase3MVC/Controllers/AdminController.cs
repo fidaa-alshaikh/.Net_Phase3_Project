@@ -178,7 +178,28 @@ namespace Project3Phase3MVC.Controllers
 
             return View();
         }
+        [HttpGet]
+        public ActionResult DeleteProduct(int id)
+        {
+            Product product = _ProductRepo.Get(id);
+     
+            return View(product);
+        }
 
+        [HttpPost]
+        public ActionResult DeleteProduct(Product product)
+        {
+            _ProductRepo.Delete(product);
+            return RedirectToAction("ProductList");
+        }
+
+        [HttpGet]
+        public ActionResult EditProduct(int id)
+        {
+            Product product = _ProductRepo.Get(id);
+
+            return View(product);
+        }
 
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
